@@ -57,3 +57,9 @@ return _instance; \
 return _instance; \
 }
 
+// 判断是否使用了ARC，做不同操作
+#if __has_feature(objc_arc)
+// compiling with ARC
+#else
+// compiling without ARC
+#endif
