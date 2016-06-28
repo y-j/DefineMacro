@@ -5,12 +5,18 @@
 //  Copyright © 2015年 YJ. All rights reserved.
 //
 
+//文件目录
+#define PathTemp NSTemporaryDirectory()
+#define PathDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+#define PathCache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+#define PathFile(fileName) [kPathDocument stringByAppendingPathComponent:(fileName)]
+
 // 属性的存取
 #define DEFAULTS_INFO(_OBJECT, _NAME) [[NSUserDefaults standardUserDefaults] setObject:_OBJECT forKey:_NAME]
 #define DEFAULTS_SYNCHRONIZE [[NSUserDefaults standardUserDefaults] synchronize]
 
 // 根据iPhone6的屏幕来适配不同屏幕的像数
-#define PixelValue(number) (number) / 750.0 * [[UIScreen mainScreen] bounds].size.width
+#define PixelValue(number) (number) / 750.f * [[UIScreen mainScreen] bounds].size.width
 
 // 获取屏幕的宽高
 #define ScreenW [[UIScreen mainScreen] bounds].size.width
